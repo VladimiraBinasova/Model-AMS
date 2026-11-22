@@ -39,10 +39,10 @@ test('linka X, stav S0 (tab. 6.19): príspevky hrán, TSI, B, najslabšia hrana'
 test('linka Y z 15 indikátorov (tab. 6.24) a indikátorov hrán (tab. 6.25)', () => {
   const s = lineState(M.lineY());
   const plain = (o) => JSON.parse(JSON.stringify(o)); // objekty z iného kontextu vm
-  assert.deepEqual(plain(s.I), { T: 0.80, S: 0.64, P: 0.61 });
-  assert.deepEqual(plain(s.q), { TS: 0.72, SP: 0.59, PT: 0.39 });
-  near(round3(s.TSI), 0.263, 1e-9, 'TSI');
-  near(M.r2(s.B), 0.76, 1e-9, 'B');
+  assert.deepEqual(plain(s.I), { T: 0.79, S: 0.64, P: 0.61 });
+  assert.deepEqual(plain(s.q), { TS: 0.72, SP: 0.60, PT: 0.39 });
+  near(round3(s.TSI), 0.262, 1e-9, 'TSI');
+  near(M.r2(s.B), 0.77, 1e-9, 'B');
   assert.equal(s.weak, 'PT');
   assert.equal(M.bandOf(s.TSI).name, 'Rozvíjajúca sa');
 });
@@ -73,7 +73,7 @@ test('DEMATEL linky X (tab. 6.21) a linky Y (tab. 6.26)', () => {
 test('scenáre linky X (tab. 6.15) a linky Y (tab. 6.28): ΔTSI a B', () => {
   const exp = {
     X: { S1: [0.019, 0.63], S2: [0.046, 0.83], S3: [0.043, 0.69], S4: [0.186, 0.89], S5: [0.116, 0.79], S6: [0.098, 0.65] },
-    Y: { S1: [0.015, 0.72], S2: [0.045, 0.76], S3: [0.033, 0.80], S4: [0.146, 0.81], S5: [0.101, 0.86], S6: [0.087, 0.77] }
+    Y: { S1: [0.015, 0.73], S2: [0.045, 0.77], S3: [0.033, 0.81], S4: [0.174, 0.85], S5: [0.099, 0.88], S6: [0.087, 0.78] }
   };
   for (const [id, mk] of [['X', M.lineX], ['Y', M.lineY]]) {
     const l = mk(), s0 = lineState(l);
@@ -85,6 +85,26 @@ test('scenáre linky X (tab. 6.15) a linky Y (tab. 6.28): ΔTSI a B', () => {
   }
 });
 
+test('scenáre linky Y (tab. 6.28): TSI', () => {
+  const exp = { S1: 0.277, S2: 0.307, S3: 0.295, S4: 0.436, S5: 0.361, S6: 0.349 };
+  for (const sc of M.lineY().scen) near(round3(M.synergy(sc.I, sc.q).TSI), exp[sc.id], 1e-9, `TSI ${sc.id}`);
+});
+
+test('starší projekt: vo vzorovej linke Y sa zmenia len bunky s pôvodnou hodnotou', () => {
+  const old = M.lineY();
+  old.ind.T2.x = 88; old.ind.S1.x = 45; old.edge.SP1.x = 65; old.direct.T = 0.80; old.direct.SP = 0.59; old.adapt.S1 = 45;
+  const o4 = old.scen.find((s) => s.id === 'S4'); o4.I.T = 0.84; o4.I.S = 0.68; o4.q.SP = 0.63; o4.ad.S1 = 58;
+  const o1 = old.scen.find((s) => s.id === 'S1'); o1.I.T = 0.90; // hodnota zmenená používateľom ostane
+  assert.equal(M.updateSampleY(old), 10);
+  const y = M.lineY();
+  assert.equal(old.ind.T2.x, 83.33); assert.equal(old.ind.S1.x, 43.75); assert.equal(old.edge.SP1.x, 66.7);
+  assert.deepEqual(JSON.parse(JSON.stringify(o4)), JSON.parse(JSON.stringify(y.scen.find((s) => s.id === 'S4'))));
+  assert.equal(o1.I.T, 0.90);
+  const copy = { ...M.lineY(), id: 'L3', builtin: false }; copy.ind.T2.x = 88;
+  assert.equal(M.updateSampleY(copy), 0, 'kópia linky Y sa nemení');
+  assert.equal(M.updateSampleY(M.lineY()), 0, 'nové údaje sa už nemenia');
+});
+
 test('koeficient synergie κ (6.18): linka X 1,28 a linka Y 1,32', () => {
   for (const [mk, Y0, k] of [[M.lineX, 10.0, 1.28], [M.lineY, 36.0, 1.32]]) {
     const l = mk(), by = (id) => l.scen.find((s) => s.id === id).Y - Y0;
@@ -93,7 +113,7 @@ test('koeficient synergie κ (6.18): linka X 1,28 a linka Y 1,32', () => {
 });
 
 test('efektívnosť investície η (6.33) na linke Y (tab. 6.29)', () => {
-  const l = M.lineY(), s0 = lineState(l), exp = { S1: 0.010, S2: 0.064, S3: 0.055, S4: 0.077, S5: 0.055, S6: 0.045 };
+  const l = M.lineY(), s0 = lineState(l), exp = { S1: 0.010, S2: 0.064, S3: 0.055, S4: 0.092, S5: 0.054, S6: 0.045 };
   for (const sc of l.scen) {
     const dT = round3(M.synergy(sc.I, sc.q).TSI) - round3(s0.TSI);
     near(round3(dT / sc.cost * 100), exp[sc.id], 1e-9, `η ${sc.id}`);
@@ -103,9 +123,9 @@ test('efektívnosť investície η (6.33) na linke Y (tab. 6.29)', () => {
 test('index adaptability A (6.21): S0 a S4 (tab. 6.31)', () => {
   const A = (v) => M.r2(M.adaptIndex(v, M.ADAPT_REF).A);
   assert.equal(A(M.lineX().adapt), 0.64);
-  assert.equal(A(M.lineY().adapt), 0.65);
+  assert.equal(A(M.lineY().adapt), 0.64);
   assert.equal(A(M.lineX().scen.find((s) => s.id === 'S4').ad), 0.85);
-  assert.equal(A(M.lineY().scen.find((s) => s.id === 'S4').ad), 0.82);
+  assert.equal(A(M.lineY().scen.find((s) => s.id === 'S4').ad), 0.83);
 });
 
 test('AHP: ukážkové porovnania sú konzistentné a dávajú váhy blízke tab. 6.24', () => {

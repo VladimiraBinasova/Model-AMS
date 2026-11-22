@@ -78,7 +78,7 @@ test('údaje linky: dátum auditu a audítor zo sekcie Údaj linky', () => {
   assert.equal(d.found, 1);
 });
 
-test('šablóna CSV s hodnotami linky Y vráti rovnaký TSI ako linka Y (0,263)', () => {
+test('šablóna CSV s hodnotami linky Y vráti rovnaký TSI ako linka Y (0,262)', () => {
   const y = M.lineY();
   const d = M.lineDataFromCSV(templateFor(y));
   assert.equal(d.name, y.name);
@@ -88,7 +88,7 @@ test('šablóna CSV s hodnotami linky Y vráti rovnaký TSI ako linka Y (0,263)'
   assert.equal(d.plan.length, 1);
   assert.equal(d.plan[0].m, 'Rotácia podľa kvalifikačnej matice; pilot');
   const l = applyTo(M.emptyLine('L', 'Import'), d);
-  assert.equal(M.rnd(tsiOf(l), 3), 0.263);
+  assert.equal(M.rnd(tsiOf(l), 3), 0.262);
   assert.equal(tsiOf(l), tsiOf(y));
 });
 

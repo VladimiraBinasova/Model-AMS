@@ -13,6 +13,6 @@ export function loadModel() {
   }
   // const a function deklarované v skriptoch sú v spoločnom globálnom rozsahu kontextu
   return vm.runInContext(`({ DIMS, DIM_KEYS, INDICATORS, EDGES, EDGE_KEYS, EDGE_IND, BANDS, ADAPT_REF, AHP_EXAMPLE, SAATY,
-    lineX, lineY, emptyLine, r2, rnd, normalize, dimIndices, edgeQualities, synergy, bandOf, adaptIndex, dematel, ahp, welch, bootKappa, mean,
+    lineX, lineY, emptyLine, updateSampleY, r2, rnd, normalize, dimIndices, edgeQualities, synergy, bandOf, adaptIndex, dematel, ahp, welch, bootKappa, mean,
     APP_ID, stateFromJSON, projectJSON, parseCSV, csvNum, csvDate, lineDataFromCSV })`, ctx);
 }
