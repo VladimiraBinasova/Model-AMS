@@ -283,7 +283,7 @@
       "w": 0.29
      },
      "T2": {
-      "x": 88,
+      "x": 83.33,
       "x0": 20,
       "xs": 100,
       "w": 0.16
@@ -307,7 +307,7 @@
       "w": 0.16
      },
      "S1": {
-      "x": 45,
+      "x": 43.75,
       "x0": 20,
       "xs": 90,
       "w": 0.22
@@ -379,7 +379,7 @@
       "xs": 100
      },
      "SP1": {
-      "x": 65,
+      "x": 66.7,
       "x0": 20,
       "xs": 100
      },
@@ -426,18 +426,18 @@
      ]
     ],
     "direct": {
-     "T": 0.8,
+     "T": 0.79,
      "S": 0.64,
      "P": 0.61,
      "TS": 0.72,
-     "SP": 0.59,
+     "SP": 0.6,
      "PT": 0.39
     },
     "adapt": {
      "T1": 12,
      "T5": 14,
      "P5": 9,
-     "S1": 45
+     "S1": 43.75
     },
     "prod": {
      "Q": 1080,
@@ -476,13 +476,13 @@
       "name": "izolovaná dimenzia T",
       "meas": "Skrátenie prestavby metódou SMED a modulárne prípravky so štandardizovaným rozhraním",
       "I": {
-       "T": 0.85,
+       "T": 0.84,
        "S": 0.64,
        "P": 0.61
       },
       "q": {
        "TS": 0.72,
-       "SP": 0.59,
+       "SP": 0.6,
        "PT": 0.41
       },
       "Y": 37.1,
@@ -491,7 +491,7 @@
        "T1": 7,
        "T5": 10,
        "P5": 9,
-       "S1": 45
+       "S1": 43.75
       }
      },
      {
@@ -501,13 +501,13 @@
       "name": "izolovaná dimenzia S",
       "meas": "Rozšírenie kvalifikačnej matice, ergonomické úpravy manuálnych staníc",
       "I": {
-       "T": 0.8,
+       "T": 0.79,
        "S": 0.74,
        "P": 0.61
       },
       "q": {
        "TS": 0.76,
-       "SP": 0.63,
+       "SP": 0.64,
        "PT": 0.39
       },
       "Y": 36.8,
@@ -516,7 +516,7 @@
        "T1": 12,
        "T5": 14,
        "P5": 8.5,
-       "S1": 62
+       "S1": 62.5
       }
      },
      {
@@ -526,13 +526,13 @@
       "name": "izolovaná dimenzia P",
       "meas": "Vyváženie linky metódou Yamazumi a štandardizovaná práca bez zmeny prepojenia s MES",
       "I": {
-       "T": 0.8,
+       "T": 0.79,
        "S": 0.64,
        "P": 0.7
       },
       "q": {
        "TS": 0.72,
-       "SP": 0.62,
+       "SP": 0.63,
        "PT": 0.43
       },
       "Y": 37.2,
@@ -541,7 +541,7 @@
        "T1": 12,
        "T5": 14,
        "P5": 7.5,
-       "S1": 45
+       "S1": 43.75
       }
      },
      {
@@ -551,13 +551,13 @@
       "name": "integrovaný, hrana P–T",
       "meas": "Opatrenia S1 až S3 zladené cez riadenie a digitálnu integráciu: prepojenie všetkých staníc s MES, sekvencovanie variantov podľa času prestavieb, prediktívna údržba",
       "I": {
-       "T": 0.84,
-       "S": 0.68,
+       "T": 0.85,
+       "S": 0.74,
        "P": 0.72
       },
       "q": {
        "TS": 0.76,
-       "SP": 0.63,
+       "SP": 0.64,
        "PT": 0.8
       },
       "Y": 40.1,
@@ -566,7 +566,7 @@
        "T1": 7,
        "T5": 9,
        "P5": 4,
-       "S1": 58
+       "S1": 62.5
       }
      },
      {
@@ -576,7 +576,7 @@
       "name": "integrovaný, hrana S–P",
       "meas": "Opatrenia zladené cez organizáciu práce: rotácia podľa kvalifikačnej matice, štandardy tvorené s operátormi, vyváženie podľa ergonomickej záťaže",
       "I": {
-       "T": 0.81,
+       "T": 0.8,
        "S": 0.72,
        "P": 0.7
       },
@@ -591,7 +591,7 @@
        "T1": 11,
        "T5": 13,
        "P5": 7,
-       "S1": 68
+       "S1": 68.75
       }
      },
      {
@@ -601,13 +601,13 @@
       "name": "integrovaný, hrana T–S",
       "meas": "Opatrenia zladené cez rozhranie človek–technika: asistenčné systémy na manuálnych staniciach, zaškolenie operátorov na novú techniku",
       "I": {
-       "T": 0.83,
+       "T": 0.82,
        "S": 0.73,
        "P": 0.64
       },
       "q": {
        "TS": 0.84,
-       "SP": 0.66,
+       "SP": 0.67,
        "PT": 0.44
       },
       "Y": 38.7,
@@ -616,7 +616,7 @@
        "T1": 10,
        "T5": 12,
        "P5": 8.5,
-       "S1": 62
+       "S1": 62.5
       }
      }
     ],
