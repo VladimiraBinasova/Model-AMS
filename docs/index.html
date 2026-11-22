@@ -474,8 +474,8 @@ function lineX() {
 
 function yIndicators() {
   const v = {
-    T1: [12, 45, 5, .29], T2: [88, 20, 100, .16], T3: [95, 80, 99, .30], T4: [83, 20, 100, .09], T5: [14, 40, 4, .16],
-    S1: [45, 20, 90, .22], S2: [85, 50, 100, .37], S3: [110, 500, 20, .20], S4: [4.0, 2, 5, .11], S5: [8, 20, 2, .10],
+    T1: [12, 45, 5, .29], T2: [83.33, 20, 100, .16], T3: [95, 80, 99, .30], T4: [83, 20, 100, .09], T5: [14, 40, 4, .16],
+    S1: [43.75, 20, 90, .22], S2: [85, 50, 100, .37], S3: [110, 500, 20, .20], S4: [4.0, 2, 5, .11], S5: [8, 20, 2, .10],
     P1: [74, 50, 95, .21], P2: [72, 50, 90, .23], P3: [90, 180, 40, .11], P4: [72, 30, 100, .11], P5: [9, 24, 2, .34]
   };
   const o = {};
@@ -486,7 +486,7 @@ function yEdges() {
   /* hodnoty z tab. 6.25; referenčné a cieľové hodnoty sú odvodené tak, aby zodpovedali normalizovaným hodnotám v tabuľke */
   return {
     TS1: { x: 75, x0: 0, xs: 100 }, TS2: { x: 75, x0: 20, xs: 100 },
-    SP1: { x: 65, x0: 20, xs: 100 }, SP2: { x: 70, x0: 20, xs: 100 },
+    SP1: { x: 66.7, x0: 20, xs: 100 }, SP2: { x: 70, x0: 20, xs: 100 },
     PT1: { x: 33, x0: 0, xs: 100 }, PT2: { x: 45, x0: 0, xs: 100 }
   };
 }
@@ -502,19 +502,19 @@ function lineY() {
       ['Pracovníci na zmenu', '4 operátori, 1 nastavovač, 1 tímlíder'],
       ['Výkon zmeny Q', '1 080 ks pri OEE 72 %']
     ],
-    direct: { T: 0.80, S: 0.64, P: 0.61, TS: 0.72, SP: 0.59, PT: 0.39 },
-    adapt: { T1: 12, T5: 14, P5: 9, S1: 45 },
+    direct: { T: 0.79, S: 0.64, P: 0.61, TS: 0.72, SP: 0.60, PT: 0.39 },
+    adapt: { T1: 12, T5: 14, P5: 9, S1: 43.75 },
     prod: { Q: 1080, N: 4, t: 7.5 },
     dem: [[[0, 2, 4], [1, 0, 1], [3, 2, 0]]],
     demNote: 'Priemerná matica panelu expertov z kap. 6.9.4',
     valid: { sim: 34.9, real: 36.0 },
     scen: [
-      { id: 'S1', kind: 'iso', foc: 'T', name: 'izolovaná dimenzia T', meas: 'Skrátenie prestavby metódou SMED a modulárne prípravky so štandardizovaným rozhraním', I: { T: .85, S: .64, P: .61 }, q: { TS: .72, SP: .59, PT: .41 }, Y: 37.1, cost: 150, ad: { T1: 7, T5: 10, P5: 9, S1: 45 } },
-      { id: 'S2', kind: 'iso', foc: 'S', name: 'izolovaná dimenzia S', meas: 'Rozšírenie kvalifikačnej matice, ergonomické úpravy manuálnych staníc', I: { T: .80, S: .74, P: .61 }, q: { TS: .76, SP: .63, PT: .39 }, Y: 36.8, cost: 70, ad: { T1: 12, T5: 14, P5: 8.5, S1: 62 } },
-      { id: 'S3', kind: 'iso', foc: 'P', name: 'izolovaná dimenzia P', meas: 'Vyváženie linky metódou Yamazumi a štandardizovaná práca bez zmeny prepojenia s MES', I: { T: .80, S: .64, P: .70 }, q: { TS: .72, SP: .62, PT: .43 }, Y: 37.2, cost: 60, ad: { T1: 12, T5: 14, P5: 7.5, S1: 45 } },
-      { id: 'S4', kind: 'int', foc: 'PT', name: 'integrovaný, hrana P–T', meas: 'Opatrenia S1 až S3 zladené cez riadenie a digitálnu integráciu: prepojenie všetkých staníc s MES, sekvencovanie variantov podľa času prestavieb, prediktívna údržba', I: { T: .84, S: .68, P: .72 }, q: { TS: .76, SP: .63, PT: .80 }, Y: 40.1, cost: 190, ad: { T1: 7, T5: 9, P5: 4, S1: 58 } },
-      { id: 'S5', kind: 'int', foc: 'SP', name: 'integrovaný, hrana S–P', meas: 'Opatrenia zladené cez organizáciu práce: rotácia podľa kvalifikačnej matice, štandardy tvorené s operátormi, vyváženie podľa ergonomickej záťaže', I: { T: .81, S: .72, P: .70 }, q: { TS: .74, SP: .78, PT: .47 }, Y: 39.1, cost: 185, ad: { T1: 11, T5: 13, P5: 7, S1: 68 } },
-      { id: 'S6', kind: 'int', foc: 'TS', name: 'integrovaný, hrana T–S', meas: 'Opatrenia zladené cez rozhranie človek–technika: asistenčné systémy na manuálnych staniciach, zaškolenie operátorov na novú techniku', I: { T: .83, S: .73, P: .64 }, q: { TS: .84, SP: .66, PT: .44 }, Y: 38.7, cost: 195, ad: { T1: 10, T5: 12, P5: 8.5, S1: 62 } }
+      { id: 'S1', kind: 'iso', foc: 'T', name: 'izolovaná dimenzia T', meas: 'Skrátenie prestavby metódou SMED a modulárne prípravky so štandardizovaným rozhraním', I: { T: .84, S: .64, P: .61 }, q: { TS: .72, SP: .60, PT: .41 }, Y: 37.1, cost: 150, ad: { T1: 7, T5: 10, P5: 9, S1: 43.75 } },
+      { id: 'S2', kind: 'iso', foc: 'S', name: 'izolovaná dimenzia S', meas: 'Rozšírenie kvalifikačnej matice, ergonomické úpravy manuálnych staníc', I: { T: .79, S: .74, P: .61 }, q: { TS: .76, SP: .64, PT: .39 }, Y: 36.8, cost: 70, ad: { T1: 12, T5: 14, P5: 8.5, S1: 62.5 } },
+      { id: 'S3', kind: 'iso', foc: 'P', name: 'izolovaná dimenzia P', meas: 'Vyváženie linky metódou Yamazumi a štandardizovaná práca bez zmeny prepojenia s MES', I: { T: .79, S: .64, P: .70 }, q: { TS: .72, SP: .63, PT: .43 }, Y: 37.2, cost: 60, ad: { T1: 12, T5: 14, P5: 7.5, S1: 43.75 } },
+      { id: 'S4', kind: 'int', foc: 'PT', name: 'integrovaný, hrana P–T', meas: 'Opatrenia S1 až S3 zladené cez riadenie a digitálnu integráciu: prepojenie všetkých staníc s MES, sekvencovanie variantov podľa času prestavieb, prediktívna údržba', I: { T: .85, S: .74, P: .72 }, q: { TS: .76, SP: .64, PT: .80 }, Y: 40.1, cost: 190, ad: { T1: 7, T5: 9, P5: 4, S1: 62.5 } },
+      { id: 'S5', kind: 'int', foc: 'SP', name: 'integrovaný, hrana S–P', meas: 'Opatrenia zladené cez organizáciu práce: rotácia podľa kvalifikačnej matice, štandardy tvorené s operátormi, vyváženie podľa ergonomickej záťaže', I: { T: .80, S: .72, P: .70 }, q: { TS: .74, SP: .78, PT: .47 }, Y: 39.1, cost: 185, ad: { T1: 11, T5: 13, P5: 7, S1: 68.75 } },
+      { id: 'S6', kind: 'int', foc: 'TS', name: 'integrovaný, hrana T–S', meas: 'Opatrenia zladené cez rozhranie človek–technika: asistenčné systémy na manuálnych staniciach, zaškolenie operátorov na novú techniku', I: { T: .82, S: .73, P: .64 }, q: { TS: .84, SP: .67, PT: .44 }, Y: 38.7, cost: 195, ad: { T1: 10, T5: 12, P5: 8.5, S1: 62.5 } }
     ],
     cardScen: 'S4', months: 6,
     plan: [
@@ -523,6 +523,32 @@ function lineY() {
       { m: 'Prediktívna údržba kritických staníc', e: 'P–T', r: 'Údržba', t: 'mesiac 3–5' }
     ]
   };
+}
+
+/* Vzorové údaje linky Y pred verziou 2.3.0 → hodnoty po prepočte modelu v práci (tab. 6.24 až 6.29).
+   Pri otvorení staršieho projektu sa vo vzorovej linke Y zmenia len bunky, ktoré majú ešte pôvodnú hodnotu. */
+const Y_SAMPLE_UPDATE = {
+  ind: { T2: [88, 83.33], S1: [45, 43.75] },
+  edge: { SP1: [65, 66.7] },
+  direct: { T: [0.80, 0.79], SP: [0.59, 0.60] },
+  adapt: { S1: [45, 43.75] },
+  scen: {
+    S1: { I: { T: [.85, .84] }, q: { SP: [.59, .60] }, ad: { S1: [45, 43.75] } },
+    S2: { I: { T: [.80, .79] }, q: { SP: [.63, .64] }, ad: { S1: [62, 62.5] } },
+    S3: { I: { T: [.80, .79] }, q: { SP: [.62, .63] }, ad: { S1: [45, 43.75] } },
+    S4: { I: { T: [.84, .85], S: [.68, .74] }, q: { SP: [.63, .64] }, ad: { S1: [58, 62.5] } },
+    S5: { I: { T: [.81, .80] }, ad: { S1: [68, 68.75] } },
+    S6: { I: { T: [.83, .82] }, q: { SP: [.66, .67] }, ad: { S1: [62, 62.5] } }
+  }
+};
+function updateSampleY(l) {
+  if (!l || !l.builtin || !/^Y(-|$)/.test(String(l.id))) return 0;
+  const U = Y_SAMPLE_UPDATE; let n = 0;
+  const val = (o, m) => { if (o) for (const k in m) if (o[k] === m[k][0]) { o[k] = m[k][1]; n++; } };
+  const meas = (o, m) => { if (o) for (const k in m) if (o[k] && o[k].x === m[k][0]) { o[k].x = m[k][1]; n++; } };
+  meas(l.ind, U.ind); meas(l.edge, U.edge); val(l.direct, U.direct); val(l.adapt, U.adapt);
+  (l.scen || []).forEach(sc => { const m = U.scen[sc.id]; if (m) { val(sc.I, m.I || {}); val(sc.q, m.q || {}); val(sc.ad, m.ad || {}); } });
+  return n;
 }
 
 /* Nová prázdna linka: predvolené referenčné a cieľové hodnoty a váhy (tab. 6.24), bez nameraných hodnôt */
@@ -833,7 +859,7 @@ function stateFromJSON(o) {
   if (!out.ev) out.ev = {};
   if (typeof out.seq !== 'number') out.seq = out.lines.length + 1;
   if (typeof out.round2 !== 'boolean') out.round2 = true;
-  out.lines.forEach(l => { l.scen = l.scen || []; l.plan = l.plan || []; l.dem = l.dem && l.dem.length ? l.dem : [[[0, 0, 0], [0, 0, 0], [0, 0, 0]]]; l.prod = l.prod || { Q: null, N: null, t: 7.5 }; l.valid = l.valid || { sim: null, real: null }; });
+  out.lines.forEach(l => { l.scen = l.scen || []; l.plan = l.plan || []; l.dem = l.dem && l.dem.length ? l.dem : [[[0, 0, 0], [0, 0, 0], [0, 0, 0]]]; l.prod = l.prod || { Q: null, N: null, t: 7.5 }; l.valid = l.valid || { sim: null, real: null }; updateSampleY(l); });
   return out;
 }
 function projectJSON(state) {
