@@ -79,7 +79,7 @@ Aplikácia rozpozná oddeľovač (bodkočiarka alebo čiarka), desatinnú čiark
 | Súbor | Obsah |
 | --- | --- |
 | `sablona-zber-udajov.csv` | prázdna šablóna novej linky |
-| `linka-y-namerane-hodnoty.csv` | šablóna vyplnená hodnotami linky Y (TSI 0,263) |
+| `linka-y-namerane-hodnoty.csv` | šablóna vyplnená hodnotami linky Y (TSI 0,262) |
 | `priklad-z-prace.json` | projekt s linkami X a Y z kapitoly 6.9 |
 
 ![Načítanie CSV do novej alebo aktívnej linky](docs/img/import-csv.png)
@@ -157,16 +157,16 @@ Po každej zmene v `src/` spustite `npm run build` a zostavený `docs/index.html
 | --- | --- | --- |
 | Normalizácia, čas prestavby 20 min (x₀ = 40, x* = 10) | 0,67 | kap. 6.6.1 |
 | Linka X: e(T–S), e(S–P), e(P–T), TSI, B | 0,190; 0,176; 0,307; 0,224; 0,67 | tab. 6.19 |
-| Linka Y z indikátorov: I(t), I(s), I(p), q, TSI, B | 0,80; 0,64; 0,61; 0,72/0,59/0,39; 0,263; 0,76 | tab. 6.24, 6.25 |
+| Linka Y z indikátorov: I(t), I(s), I(p), q, TSI, B | 0,79; 0,64; 0,61; 0,72/0,60/0,39; 0,262; 0,77 | tab. 6.24, 6.25 |
 | Penalizácia nevyváženosti TSI′ | 0,360; 0,347; 0,330; 0,270 | tab. 6.12 |
 | DEMATEL R, C, d, r | linka X: r = +0,36 / −0,98 / +0,62; linka Y: +0,96 / −1,08 / +0,11 | tab. 6.21, 6.26 |
-| ΔTSI a B scenárov S1 až S6 | napr. S4: +0,186 (X), +0,146 (Y) | tab. 6.15, 6.28 |
+| TSI, ΔTSI a B scenárov S1 až S6 | napr. S4: +0,186 (X), TSI 0,436 a +0,174 (Y) | tab. 6.15, 6.28 |
 | Koeficient synergie κ | 1,28 (X), 1,32 (Y) | tab. 6.22, 6.29 |
-| Efektívnosť investície η | 0,010 až 0,077 | tab. 6.29 |
-| Index adaptability A (S0 → S4) | 0,64 → 0,85 (X), 0,65 → 0,82 (Y) | tab. 6.31 |
+| Efektívnosť investície η | 0,010 až 0,092 | tab. 6.29 |
+| Index adaptability A (S0 → S4) | 0,64 → 0,85 (X), 0,64 → 0,83 (Y) | tab. 6.31 |
 | AHP: CR ukážkových porovnaní | ≤ 0,10 | vzťah (6.27) |
 | Welchov t-test | t, df a p podľa referenčného výpočtu | vzťah (6.31) |
-| CSV: oddeľovač, úvodzovky, desatinná čiarka | šablóna s hodnotami linky Y vráti TSI 0,263 | `tests/io.test.mjs` |
+| CSV: oddeľovač, úvodzovky, desatinná čiarka | šablóna s hodnotami linky Y vráti TSI 0,262 | `tests/io.test.mjs` |
 | Projekt JSON | uloženie a otvorenie zachová údaje; starší export a verzia sa načítajú | `tests/io.test.mjs` |
 
 Tabuľky práce počítajú s indexmi a kvalitou väzieb zaokrúhlenými na 2 desatinné miesta; aplikácia to robí rovnako (prepínač v bočnom paneli).
@@ -193,7 +193,7 @@ Namiesto `/ (root)` môžete zvoliť aj priečinok `/docs`; aplikácia potom be�
 ```bash
 git init
 git add .
-git commit -m "Model synergie adaptívnej montáže 2.2.0"
+git commit -m "Model synergie adaptívnej montáže 2.3.0"
 git branch -M main
 git remote add origin https://github.com/miro1heglas-gif/Model-synergie.git
 git push -u origin main

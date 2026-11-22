@@ -1,6 +1,6 @@
 {
   "name": "model-synergie-ams",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Aplikácia na audit synergie montážnych liniek podľa modelu organizácie a synergie adaptívnych montážnych procesov (TSI, DEMATEL, AHP, koeficient synergie κ), s projektom v súbore a výmenou údajov s Excelom.",
   "private": true,
   "type": "module",

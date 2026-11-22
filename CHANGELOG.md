@@ -1,5 +1,12 @@
 # Zmeny
 
+## 2.3.0
+
+- **Vzorové údaje linky Y** podľa prepočtu modelu v práci (tab. 6.24 až 6.29): T2 = 83,33 %, S1 = 43,75 %, prvý indikátor hrany S–P = 66,7 % (8 z 12 operátorov). Východiskový stav: I(t) = 0,79, q(sp) = 0,60, TSI = 0,262, B = 0,77.
+- **Scenáre linky Y**: upravené I(t), I(s) v S4 a q(sp) a podiel S1 v indexe adaptability A. Výsledky: S4 TSI 0,436 (ΔTSI +0,174, B 0,85, η 0,092); κ = 1,32 bez zmeny.
+- Projekt uložený staršou verziou (v prehliadači aj v súbore): vo vzorovej linke Y sa pri otvorení zmenia len bunky, ktoré majú ešte pôvodnú vzorovú hodnotu. Kópie linky Y a hodnoty upravené používateľom ostávajú.
+- Linka X sa nemení. Vzorové súbory v `examples/` a testy zodpovedajú novým hodnotám.
+
 ## 2.2.0
 
 - **Úvodná obrazovka**: nový projekt (názov, podnik, audítor), pokračovanie v rozpracovanom projekte, otvorenie súboru, príklad z práce; voľba, či sa má zobrazovať pri spustení; otvorí ju aj logo v bočnom paneli.
