@@ -12,7 +12,7 @@ function stateFromJSON(o) {
   if (!out.ev) out.ev = {};
   if (typeof out.seq !== 'number') out.seq = out.lines.length + 1;
   if (typeof out.round2 !== 'boolean') out.round2 = true;
-  out.lines.forEach(l => { l.scen = l.scen || []; l.plan = l.plan || []; l.dem = l.dem && l.dem.length ? l.dem : [[[0, 0, 0], [0, 0, 0], [0, 0, 0]]]; l.prod = l.prod || { Q: null, N: null, t: 7.5 }; l.valid = l.valid || { sim: null, real: null }; });
+  out.lines.forEach(l => { l.scen = l.scen || []; l.plan = l.plan || []; l.dem = l.dem && l.dem.length ? l.dem : [[[0, 0, 0], [0, 0, 0], [0, 0, 0]]]; l.prod = l.prod || { Q: null, N: null, t: 7.5 }; l.valid = l.valid || { sim: null, real: null }; updateSampleY(l); });
   return out;
 }
 function projectJSON(state) {
