@@ -2,6 +2,8 @@
 
 # Model synergie adaptívnej montáže
 
+**[▶ Spustiť aplikáciu](https://miro1heglas-gif.github.io/Model-synergie/)** · https://miro1heglas-gif.github.io/Model-synergie/
+
 Aplikácia na audit synergie montážnych liniek podľa modelu organizácie a synergie adaptívnych montážnych procesov z kapitoly 6 habilitačnej práce *Organizácia a synergia adaptívnych montážnych procesov* (V. Biňasová, Žilinská univerzita v Žiline, 2027). Vypočíta triangulačný index synergie TSI linky, určí najslabšiu väzbu medzi technikou, ľuďmi a organizáciou, porovná scenáre opatrení a pripraví kartu synergie s akčným plánom.
 
 Projekt s ľubovoľným počtom liniek sa ukladá do súboru a znova otvára. Namerané hodnoty sa dajú pripraviť v Exceli a načítať z CSV. Celá aplikácia je jeden HTML súbor bez závislostí a bez servera; údaje neopúšťajú počítač používateľa.
@@ -32,7 +34,7 @@ Projekt s ľubovoľným počtom liniek sa ukladá do súboru a znova otvára. Na
 
 - **Bez inštalácie:** otvorte `docs/index.html` v prehliadači.
 - **Lokálny server:** `npm run serve` a potom http://localhost:8080 (potrebuje Python 3).
-- **Online:** po zapnutí GitHub Pages (nižšie) na adrese `https://<používateľ>.github.io/model-synergie-ams/`. V Chrome a Edge sa dá stránka nainštalovať ako aplikácia s vlastnou ikonou (ikona inštalácie v adresnom riadku).
+- **Online:** [https://miro1heglas-gif.github.io/Model-synergie/](https://miro1heglas-gif.github.io/Model-synergie/) (po zapnutí GitHub Pages, pozri nižšie). V Chrome a Edge sa dá stránka nainštalovať ako aplikácia s vlastnou ikonou (ikona inštalácie v adresnom riadku).
 
 Pri spustení sa zobrazí úvodná obrazovka: **Nový projekt**, **Pokračovať** v rozpracovanom projekte, **Otvoriť súbor** alebo **Pozrieť príklad z práce** (linky X a Y z kapitoly 6.9). Ak ju nechcete vidieť pri každom spustení, zaškrtnite *Pri spustení otvoriť rovno posledný projekt*; znova ju otvorí klik na logo v bočnom paneli.
 
@@ -108,7 +110,8 @@ Načítajú sa aj exporty z verzie 1.x (samotný objekt `state`) a stiahnuté ve
 ## Štruktúra repozitára
 
 ```
-model-synergie-ams/
+Model-synergie/
+├── index.html                    otvorí aplikáciu v docs/ (GitHub Pages z koreňa)
 ├── docs/                         zostavená aplikácia (GitHub Pages)
 │   ├── index.html                jednosúborová aplikácia
 │   ├── icon.svg, icon-*.png      ikona aplikácie (192, 512, 180 px pre iOS)
@@ -170,20 +173,33 @@ Tabuľky práce počítajú s indexmi a kvalitou väzieb zaokrúhlenými na 2 de
 
 ## Nasadenie na GitHub Pages
 
-1. Vytvorte na GitHube nový repozitár, napríklad `model-synergie-ams`.
-2. V priečinku projektu:
-   ```bash
-   git init
-   git add .
-   git commit -m "Model synergie adaptívnej montáže 2.2.0"
-   git branch -M main
-   git remote add origin https://github.com/<používateľ>/model-synergie-ams.git
-   git push -u origin main
-   ```
-3. V repozitári otvorte **Settings → Pages** a v časti **Build and deployment** zvoľte **Source: GitHub Actions**.
-4. Workflow `GitHub Pages` po každom pushi do `main` spustí testy, zostaví aplikáciu a zverejní priečinok `docs/`.
+Stránka repozitára na github.com (`https://github.com/miro1heglas-gif/Model-synergie`) vždy zobrazí len súbory a README; aplikáciu tam GitHub nespúšťa. Aplikácia beží na adrese GitHub Pages:
 
-Ak nechcete používať Actions, zvoľte **Source: Deploy from a branch**, vetvu `main` a priečinok `/docs`.
+**https://miro1heglas-gif.github.io/Model-synergie/**
+
+Tento odkaz posielajte ostatným.
+
+### Najjednoduchšie: nahranie cez webové rozhranie
+
+1. V repozitári zvoľte **Add file → Upload files** a pretiahnite **obsah** priečinka (nie priečinok samotný), aby `index.html`, `README.md` a `docs/` boli priamo v koreni repozitára. Potvrďte **Commit changes**.
+2. Otvorte **Settings → Pages**, v časti **Build and deployment** zvoľte **Source: Deploy from a branch**, vetvu `main`, priečinok `/ (root)` a **Save**.
+3. Po 1 až 2 minútach otvorte https://miro1heglas-gif.github.io/Model-synergie/. Súbor `index.html` v koreni hneď presmeruje na aplikáciu v `docs/`. Bez neho by GitHub Pages zobrazil README.
+4. Voliteľne: na hlavnej stránke repozitára kliknite na ozubené koliesko pri **About** a zaškrtnite **Use your GitHub Pages website**. Odkaz na aplikáciu sa potom zobrazí aj vpravo hore pri súboroch.
+
+Namiesto `/ (root)` môžete zvoliť aj priečinok `/docs`; aplikácia potom beží priamo na https://miro1heglas-gif.github.io/Model-synergie/ bez presmerovania.
+
+### Cez git a GitHub Actions
+
+```bash
+git init
+git add .
+git commit -m "Model synergie adaptívnej montáže 2.2.0"
+git branch -M main
+git remote add origin https://github.com/miro1heglas-gif/Model-synergie.git
+git push -u origin main
+```
+
+V **Settings → Pages** zvoľte **Source: GitHub Actions**. Workflow `GitHub Pages` po každom pushi do `main` spustí testy, zostaví aplikáciu a zverejní priečinok `docs/`. Webové rozhranie GitHubu pri pretiahnutí súborov často vynechá skrytý priečinok `.github`; vtedy workflow nevznikne a použite spôsob *Deploy from a branch* vyššie.
 
 ## O údajoch
 

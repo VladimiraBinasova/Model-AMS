@@ -7,6 +7,7 @@
 - Formulár novej linky už neponúka predvyplnenie podľa liniek X a Y; po potvrdení pokračuje na vstupný formulár. Nový projekt začína formulárom projektu a prvej linky.
 - Projekt má podnik a predvoleného audítora (karta synergie, výsledky CSV, Súbory a verzie).
 - **Ikona aplikácie**: v bočnom paneli, na úvodnej obrazovke, ako ikona karty prehliadača; na GitHub Pages manifest a ikony na inštaláciu ako aplikácia.
+- `index.html` v koreni repozitára otvorí aplikáciu aj pri GitHub Pages nastavenom na koreň (predtým sa zobrazilo README); README má odkaz **Spustiť aplikáciu** a postup nasadenia pre repozitár Model-synergie.
 
 ## 2.1.0
 
