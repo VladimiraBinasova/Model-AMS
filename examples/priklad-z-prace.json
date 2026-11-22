@@ -1,0 +1,711 @@
+{
+ "app": "model-synergie-ams",
+ "format": 2,
+ "savedAt": "2026-11-20T22:54:07.558Z",
+ "state": {
+  "v": 1,
+  "project": {
+   "name": "Príklad z práce – linky X a Y"
+  },
+  "lineId": "X",
+  "round2": true,
+  "seq": 1,
+  "lines": [
+   {
+    "id": "X",
+    "name": "Linka X",
+    "sub": "ručne mechanizovaná",
+    "builtin": true,
+    "mode": "direct",
+    "ind": null,
+    "edge": null,
+    "info": [
+     [
+      "Produkt",
+      "Elektromechanická podzostava, napr. ovládací modul"
+     ],
+     [
+      "Stanice",
+      "8 (6 s operátormi, 1 kobot, 1 automatický test)"
+     ],
+     [
+      "Varianty",
+      "3 (A : B : C = 50 : 30 : 20)"
+     ],
+     [
+      "Takt τ",
+      "45 s"
+     ],
+     [
+      "Pracovníci na zmenu",
+      "6 operátorov a 1 tímlíder"
+     ],
+     [
+      "Výkon zmeny Q",
+      "450 ks pri OEE 75 %"
+     ]
+    ],
+    "direct": {
+     "T": 0.72,
+     "S": 0.48,
+     "P": 0.61,
+     "TS": 0.55,
+     "SP": 0.6,
+     "PT": 0.7
+    },
+    "adapt": {
+     "T1": 12,
+     "T5": 8,
+     "P5": 12,
+     "S1": 40
+    },
+    "prod": {
+     "Q": 450,
+     "N": 6,
+     "t": 7.5
+    },
+    "dem": [
+     [
+      [
+       0,
+       3,
+       1
+      ],
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       2,
+       3,
+       0
+      ]
+     ]
+    ],
+    "demNote": "Priemerná matica panelu expertov z tab. 6.20",
+    "valid": {
+     "sim": 9.9,
+     "real": 10
+    },
+    "scen": [
+     {
+      "id": "S1",
+      "kind": "iso",
+      "foc": "T",
+      "name": "izolovaná dimenzia T",
+      "meas": "Modulárne prípravky so štandardizovaným rozhraním, skrátenie prestavby metódou SMED",
+      "I": {
+       "T": 0.76,
+       "S": 0.48,
+       "P": 0.62
+      },
+      "q": {
+       "TS": 0.55,
+       "SP": 0.6,
+       "PT": 0.74
+      },
+      "Y": 10.6,
+      "cost": null,
+      "ad": {
+       "T1": 7,
+       "T5": 6,
+       "P5": 12,
+       "S1": 40
+      }
+     },
+     {
+      "id": "S2",
+      "kind": "iso",
+      "foc": "S",
+      "name": "izolovaná dimenzia S",
+      "meas": "Rozšírenie kvalifikačnej matice, školenia, ergonomické úpravy pracovísk",
+      "I": {
+       "T": 0.72,
+       "S": 0.6,
+       "P": 0.61
+      },
+      "q": {
+       "TS": 0.62,
+       "SP": 0.64,
+       "PT": 0.7
+      },
+      "Y": 10.4,
+      "cost": null,
+      "ad": {
+       "T1": 12,
+       "T5": 8,
+       "P5": 11,
+       "S1": 60
+      }
+     },
+     {
+      "id": "S3",
+      "kind": "iso",
+      "foc": "P",
+      "name": "izolovaná dimenzia P",
+      "meas": "Vyváženie linky metódou Yamazumi, štandardizovaná práca, sekvencovanie variantov",
+      "I": {
+       "T": 0.72,
+       "S": 0.5,
+       "P": 0.7
+      },
+      "q": {
+       "TS": 0.55,
+       "SP": 0.66,
+       "PT": 0.74
+      },
+      "Y": 10.8,
+      "cost": null,
+      "ad": {
+       "T1": 12,
+       "T5": 8,
+       "P5": 9,
+       "S1": 42
+      }
+     },
+     {
+      "id": "S4",
+      "kind": "int",
+      "foc": "SP",
+      "name": "integrovaný, hrana S–P",
+      "meas": "Opatrenia S1 až S3 zladené cez organizáciu práce: rotácia podľa kvalifikačnej matice, štandardy tvorené s operátormi, vyváženie s ohľadom na ergonomickú záťaž, asistenčný systém na staniciach s najvyššou chybovosťou",
+      "I": {
+       "T": 0.76,
+       "S": 0.68,
+       "P": 0.74
+      },
+      "q": {
+       "TS": 0.75,
+       "SP": 0.8,
+       "PT": 0.78
+      },
+      "Y": 12.3,
+      "cost": null,
+      "ad": {
+       "T1": 7,
+       "T5": 6,
+       "P5": 7,
+       "S1": 70
+      }
+     },
+     {
+      "id": "S5",
+      "kind": "int",
+      "foc": "TS",
+      "name": "integrovaný, hrana T–S",
+      "meas": "Opatrenia zladené cez rozhranie človek–technika: asistenčné systémy a kobot s ergonomickou úpravou staníc, zaškolenie na novú techniku",
+      "I": {
+       "T": 0.78,
+       "S": 0.62,
+       "P": 0.66
+      },
+      "q": {
+       "TS": 0.8,
+       "SP": 0.64,
+       "PT": 0.72
+      },
+      "Y": null,
+      "cost": null,
+      "ad": {
+       "T1": 9,
+       "T5": 7,
+       "P5": 11,
+       "S1": 55
+      }
+     },
+     {
+      "id": "S6",
+      "kind": "int",
+      "foc": "PT",
+      "name": "integrovaný, hrana P–T",
+      "meas": "Opatrenia zladené cez riadenie a digitálnu integráciu: prepojenie staníc s MES, sekvencovanie variantov s ohľadom na prestavby, prediktívna údržba",
+      "I": {
+       "T": 0.8,
+       "S": 0.52,
+       "P": 0.72
+      },
+      "q": {
+       "TS": 0.58,
+       "SP": 0.64,
+       "PT": 0.84
+      },
+      "Y": null,
+      "cost": null,
+      "ad": {
+       "T1": 10,
+       "T5": 7,
+       "P5": 7,
+       "S1": 42
+      }
+     }
+    ],
+    "cardScen": "S4",
+    "months": 6,
+    "plan": [
+     {
+      "m": "Rotácia operátorov podľa kvalifikačnej matice",
+      "e": "S–P",
+      "r": "Majster linky",
+      "t": "mesiac 1–2"
+     },
+     {
+      "m": "Štandardizovaná práca tvorená s operátormi",
+      "e": "S–P",
+      "r": "Priemyselný inžinier",
+      "t": "mesiac 1–3"
+     },
+     {
+      "m": "Vyváženie linky (Yamazumi) s ohľadom na ergonómiu",
+      "e": "S–P",
+      "r": "Priemyselný inžinier",
+      "t": "mesiac 2–3"
+     },
+     {
+      "m": "Asistenčný systém na staniciach s najvyššou chybovosťou",
+      "e": "T–S",
+      "r": "Technológ",
+      "t": "mesiac 3–4"
+     }
+    ]
+   },
+   {
+    "id": "Y",
+    "name": "Linka Y",
+    "sub": "vysoko mechanizovaná",
+    "builtin": true,
+    "mode": "ind",
+    "ind": {
+     "T1": {
+      "x": 12,
+      "x0": 45,
+      "xs": 5,
+      "w": 0.29
+     },
+     "T2": {
+      "x": 88,
+      "x0": 20,
+      "xs": 100,
+      "w": 0.16
+     },
+     "T3": {
+      "x": 95,
+      "x0": 80,
+      "xs": 99,
+      "w": 0.3
+     },
+     "T4": {
+      "x": 83,
+      "x0": 20,
+      "xs": 100,
+      "w": 0.09
+     },
+     "T5": {
+      "x": 14,
+      "x0": 40,
+      "xs": 4,
+      "w": 0.16
+     },
+     "S1": {
+      "x": 45,
+      "x0": 20,
+      "xs": 90,
+      "w": 0.22
+     },
+     "S2": {
+      "x": 85,
+      "x0": 50,
+      "xs": 100,
+      "w": 0.37
+     },
+     "S3": {
+      "x": 110,
+      "x0": 500,
+      "xs": 20,
+      "w": 0.2
+     },
+     "S4": {
+      "x": 4,
+      "x0": 2,
+      "xs": 5,
+      "w": 0.11
+     },
+     "S5": {
+      "x": 8,
+      "x0": 20,
+      "xs": 2,
+      "w": 0.1
+     },
+     "P1": {
+      "x": 74,
+      "x0": 50,
+      "xs": 95,
+      "w": 0.21
+     },
+     "P2": {
+      "x": 72,
+      "x0": 50,
+      "xs": 90,
+      "w": 0.23
+     },
+     "P3": {
+      "x": 90,
+      "x0": 180,
+      "xs": 40,
+      "w": 0.11
+     },
+     "P4": {
+      "x": 72,
+      "x0": 30,
+      "xs": 100,
+      "w": 0.11
+     },
+     "P5": {
+      "x": 9,
+      "x0": 24,
+      "xs": 2,
+      "w": 0.34
+     }
+    },
+    "edge": {
+     "TS1": {
+      "x": 75,
+      "x0": 0,
+      "xs": 100
+     },
+     "TS2": {
+      "x": 75,
+      "x0": 20,
+      "xs": 100
+     },
+     "SP1": {
+      "x": 65,
+      "x0": 20,
+      "xs": 100
+     },
+     "SP2": {
+      "x": 70,
+      "x0": 20,
+      "xs": 100
+     },
+     "PT1": {
+      "x": 33,
+      "x0": 0,
+      "xs": 100
+     },
+     "PT2": {
+      "x": 45,
+      "x0": 0,
+      "xs": 100
+     }
+    },
+    "info": [
+     [
+      "Produkt",
+      "Elektromechanická súčiastka, napr. relé"
+     ],
+     [
+      "Stanice",
+      "12 (9 automatických alebo mechanizovaných, 3 manuálne)"
+     ],
+     [
+      "Varianty",
+      "4 (A až D = 40 : 30 : 20 : 10)"
+     ],
+     [
+      "Takt τ",
+      "18 s"
+     ],
+     [
+      "Pracovníci na zmenu",
+      "4 operátori, 1 nastavovač, 1 tímlíder"
+     ],
+     [
+      "Výkon zmeny Q",
+      "1 080 ks pri OEE 72 %"
+     ]
+    ],
+    "direct": {
+     "T": 0.8,
+     "S": 0.64,
+     "P": 0.61,
+     "TS": 0.72,
+     "SP": 0.59,
+     "PT": 0.39
+    },
+    "adapt": {
+     "T1": 12,
+     "T5": 14,
+     "P5": 9,
+     "S1": 45
+    },
+    "prod": {
+     "Q": 1080,
+     "N": 4,
+     "t": 7.5
+    },
+    "dem": [
+     [
+      [
+       0,
+       2,
+       4
+      ],
+      [
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       2,
+       0
+      ]
+     ]
+    ],
+    "demNote": "Priemerná matica panelu expertov z kap. 6.9.4",
+    "valid": {
+     "sim": 34.9,
+     "real": 36
+    },
+    "scen": [
+     {
+      "id": "S1",
+      "kind": "iso",
+      "foc": "T",
+      "name": "izolovaná dimenzia T",
+      "meas": "Skrátenie prestavby metódou SMED a modulárne prípravky so štandardizovaným rozhraním",
+      "I": {
+       "T": 0.85,
+       "S": 0.64,
+       "P": 0.61
+      },
+      "q": {
+       "TS": 0.72,
+       "SP": 0.59,
+       "PT": 0.41
+      },
+      "Y": 37.1,
+      "cost": 150,
+      "ad": {
+       "T1": 7,
+       "T5": 10,
+       "P5": 9,
+       "S1": 45
+      }
+     },
+     {
+      "id": "S2",
+      "kind": "iso",
+      "foc": "S",
+      "name": "izolovaná dimenzia S",
+      "meas": "Rozšírenie kvalifikačnej matice, ergonomické úpravy manuálnych staníc",
+      "I": {
+       "T": 0.8,
+       "S": 0.74,
+       "P": 0.61
+      },
+      "q": {
+       "TS": 0.76,
+       "SP": 0.63,
+       "PT": 0.39
+      },
+      "Y": 36.8,
+      "cost": 70,
+      "ad": {
+       "T1": 12,
+       "T5": 14,
+       "P5": 8.5,
+       "S1": 62
+      }
+     },
+     {
+      "id": "S3",
+      "kind": "iso",
+      "foc": "P",
+      "name": "izolovaná dimenzia P",
+      "meas": "Vyváženie linky metódou Yamazumi a štandardizovaná práca bez zmeny prepojenia s MES",
+      "I": {
+       "T": 0.8,
+       "S": 0.64,
+       "P": 0.7
+      },
+      "q": {
+       "TS": 0.72,
+       "SP": 0.62,
+       "PT": 0.43
+      },
+      "Y": 37.2,
+      "cost": 60,
+      "ad": {
+       "T1": 12,
+       "T5": 14,
+       "P5": 7.5,
+       "S1": 45
+      }
+     },
+     {
+      "id": "S4",
+      "kind": "int",
+      "foc": "PT",
+      "name": "integrovaný, hrana P–T",
+      "meas": "Opatrenia S1 až S3 zladené cez riadenie a digitálnu integráciu: prepojenie všetkých staníc s MES, sekvencovanie variantov podľa času prestavieb, prediktívna údržba",
+      "I": {
+       "T": 0.84,
+       "S": 0.68,
+       "P": 0.72
+      },
+      "q": {
+       "TS": 0.76,
+       "SP": 0.63,
+       "PT": 0.8
+      },
+      "Y": 40.1,
+      "cost": 190,
+      "ad": {
+       "T1": 7,
+       "T5": 9,
+       "P5": 4,
+       "S1": 58
+      }
+     },
+     {
+      "id": "S5",
+      "kind": "int",
+      "foc": "SP",
+      "name": "integrovaný, hrana S–P",
+      "meas": "Opatrenia zladené cez organizáciu práce: rotácia podľa kvalifikačnej matice, štandardy tvorené s operátormi, vyváženie podľa ergonomickej záťaže",
+      "I": {
+       "T": 0.81,
+       "S": 0.72,
+       "P": 0.7
+      },
+      "q": {
+       "TS": 0.74,
+       "SP": 0.78,
+       "PT": 0.47
+      },
+      "Y": 39.1,
+      "cost": 185,
+      "ad": {
+       "T1": 11,
+       "T5": 13,
+       "P5": 7,
+       "S1": 68
+      }
+     },
+     {
+      "id": "S6",
+      "kind": "int",
+      "foc": "TS",
+      "name": "integrovaný, hrana T–S",
+      "meas": "Opatrenia zladené cez rozhranie človek–technika: asistenčné systémy na manuálnych staniciach, zaškolenie operátorov na novú techniku",
+      "I": {
+       "T": 0.83,
+       "S": 0.73,
+       "P": 0.64
+      },
+      "q": {
+       "TS": 0.84,
+       "SP": 0.66,
+       "PT": 0.44
+      },
+      "Y": 38.7,
+      "cost": 195,
+      "ad": {
+       "T1": 10,
+       "T5": 12,
+       "P5": 8.5,
+       "S1": 62
+      }
+     }
+    ],
+    "cardScen": "S4",
+    "months": 6,
+    "plan": [
+     {
+      "m": "Prepojenie všetkých staníc s MES",
+      "e": "P–T",
+      "r": "Technológ",
+      "t": "mesiac 1–4"
+     },
+     {
+      "m": "Sekvencovanie variantov podľa času prestavieb",
+      "e": "P–T",
+      "r": "Plánovač výroby",
+      "t": "mesiac 1–2"
+     },
+     {
+      "m": "Prediktívna údržba kritických staníc",
+      "e": "P–T",
+      "r": "Údržba",
+      "t": "mesiac 3–5"
+     }
+    ]
+   }
+  ],
+  "ahp": {
+   "T": [
+    [
+     2,
+     1,
+     3,
+     2
+    ],
+    [
+     0.5,
+     2,
+     1
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     0.5
+    ]
+   ],
+   "S": [
+    [
+     0.5,
+     1,
+     2,
+     2
+    ],
+    [
+     2,
+     3,
+     4
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     1
+    ]
+   ],
+   "P": [
+    [
+     1,
+     2,
+     2,
+     0.5
+    ],
+    [
+     2,
+     2,
+     0.5
+    ],
+    [
+     1,
+     0.3333333333333333
+    ],
+    [
+     0.3333333333333333
+    ]
+   ]
+  },
+  "ev": {}
+ }
+}

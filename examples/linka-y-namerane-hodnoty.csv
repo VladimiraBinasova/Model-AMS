@@ -1,0 +1,36 @@
+﻿Model synergie adaptívnej montáže – údaje linky;Linka Y (vysoko mechanizovaná)
+Pokyny;"Do stĺpca x zapíšte namerané hodnoty (desatinná čiarka). x0 je najhoršia prijateľná hodnota, x* cieľová hodnota a w váha indikátora v dimenzii; súčet váh v dimenzii je 1. Súbor uložte ako CSV oddelené bodkočiarkou a načítajte ho v aplikácii."
+
+Údaj linky;Hodnota
+Dátum auditu;
+Audítor;
+Q – dobré kusy za zmenu [ks];1080
+N – operátori na zmenu;4
+t – plánovaný čas zmeny [h];7,50
+
+Kód;Indikátor;Jednotka;x;x0;x*;w;
+T1;Čas prestavby pri zmene variantu;min;12;45,00;5,00;0,29;
+T2;Index modularity staníc;%;88;20,00;100,00;0,16;
+T3;Technická dostupnosť;%;95;80,00;99,00;0,30;
+T4;Digitálna konektivita;%;83;20,00;100,00;0,09;
+T5;Čas rekonfigurácie kapacity;h;14;40,00;4,00;0,16;
+S1;Index flexibility pracovníkov;%;45;20,00;90,00;0,22;
+S2;Ergonomická bezpečnosť;%;85;50,00;100,00;0,37;
+S3;Chyby ľudského faktora;ppm;110;500,00;20,00;0,20;
+S4;Akceptácia technológií;bod;4;2,00;5,00;0,11;
+S5;Stabilita pracovnej sily;%;8;20,00;2,00;0,10;
+P1;Efektívnosť vyváženia linky;%;74;50,00;95,00;0,21;
+P2;Celková efektívnosť zariadení;%;72;50,00;90,00;0,23;
+P3;Priebežná doba montáže;min;90;180,00;40,00;0,11;
+P4;Pokrytie štandardizovanou prácou;%;72;30,00;100,00;0,11;
+P5;Čas reakcie na zmenu plánu;h;9;24,00;2,00;0,34;
+
+Kód;Indikátor hrany;Jednotka;x;x0;x*;;
+TS1;Podiel staníc s asistenčným systémom tam, kde ho vyžaduje zložitosť operácie;%;75;0,00;100,00;;
+TS2;Podiel operátorov zaškolených na novú techniku;%;75;20,00;100,00;;
+SP1;Podiel operátorov zaradených do rotácie;%;65;20,00;100,00;;
+SP2;Podiel štandardov vytvorených s účasťou operátorov;%;70;20,00;100,00;;
+PT1;Podiel staníc prepojených s MES;%;33;0,00;100,00;;
+PT2;Podiel prestavieb plánovaných v sekvencii variantov;%;45;0,00;100,00;;
+
+Opatrenie;Hrana;Zodpovedný;Termín
